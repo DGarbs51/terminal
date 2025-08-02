@@ -1,15 +1,24 @@
 {
     "$schema": "https://getcomposer.org/schema.json",
-    "name": "laravel/react-starter-kit",
+    "name": "dgarbs51/terminal",
     "type": "project",
-    "description": "The skeleton application for the Laravel framework.",
+    "description": "An interactional terminal application built with Laravel 12 and React.",
+    "authors": [
+        {
+            "name": "Devon Garbalosa",
+            "email": "dgarbalo@gmail.com"
+        }
+    ],
     "keywords": [
         "laravel",
-        "framework"
+        "react",
+        "inertia",
+        "tailwindcss",
+        "shadcn"
     ],
     "license": "MIT",
     "require": {
-        "php": "^8.2",
+        "php": "^8.4",
         "inertiajs/inertia-laravel": "^2.0",
         "laravel/framework": "^12.0",
         "laravel/reverb": "^1.0",
