@@ -47,8 +47,18 @@ function DialogOverlay({
 function DialogContent({
   className,
   children,
+  'aria-describedby': ariaDescribedBy,
   ...props
 }: React.ComponentProps<typeof DialogPrimitive.Content>) {
+  // In development, warn if no aria-describedby is provided
+  React.useEffect(() => {
+    if (process.env.NODE_ENV === 'development' && !ariaDescribedBy) {
+      console.warn(
+        'DialogContent: Consider adding a DialogDescription or aria-describedby for better accessibility'
+      );
+    }
+  }, [ariaDescribedBy]);
+
   return (
     <DialogPortal data-slot="dialog-portal">
       <DialogOverlay />
@@ -58,6 +68,7 @@ function DialogContent({
           "bg-background data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 fixed top-[50%] left-[50%] z-50 grid w-full max-w-[calc(100%-2rem)] translate-x-[-50%] translate-y-[-50%] gap-4 rounded-lg border p-6 shadow-lg duration-200 sm:max-w-lg",
           className
         )}
+        aria-describedby={ariaDescribedBy}
         {...props}
       >
         {children}
